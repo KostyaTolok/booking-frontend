@@ -17,6 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "prepare": "husky install",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --cache --write './**/*.{js,jsx,ts,tsx,css,md,json}'"
@@ -53,11 +54,5 @@
       "eslint --fix",
       "prettier --cache --write"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lint-staged",
-      "pre-push": "npx lint-staged"
-    }
   }
 }
