@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function RecentViewsItem(props) {
   return (
     <Link to="/">
-      <Card className="card recent-views-item">
+      <Card className="recent-views-item">
         <img className="recent-views-item__image" src={props.image}></img>
         <div className="recent-views-item__info">
           <p className="recent-views-item__title">{props.title}</p>

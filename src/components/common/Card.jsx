@@ -1,7 +1,13 @@
 import "./Card.scss";
 
 function Card(props) {
-  return <div {...props}>{props.children}</div>;
+  const { className, ...other } = props;
+
+  return (
+    <div className={`card ${className}`} {...other}>
+      {props.children}
+    </div>
+  );
 }
 
 export default Card;
