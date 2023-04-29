@@ -1,0 +1,30 @@
+@import "constants";
+
+.quantity-picker {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid $grey-color;
+  border-radius: 3px;
+
+  &__modifier {
+    width: 3rem;
+    height: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  &__display {
+    width: 4rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 0;
+    pointer-events: none;
+  }
+
+  &__modifier,
+  &__display {
+    outline: none;
+    user-select: none;
+  }
+}

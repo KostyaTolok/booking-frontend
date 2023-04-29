@@ -1,0 +1,12 @@
+@import "constants";
+@import "mixins";
+
+.destination-select-wrapper {
+  flex-grow: 1;
+}
+
+.destination-modal {
+  @include modal;
+
+  min-width: 21.875rem;
+}

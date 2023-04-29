@@ -1,0 +1,11 @@
+@import "constants";
+
+.footer {
+  padding: 1rem 0;
+  text-align: center;
+  background-color: $orange-color;
+
+  p {
+    color: $white-color;
+  }
+}

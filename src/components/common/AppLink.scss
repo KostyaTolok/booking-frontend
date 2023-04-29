@@ -1,0 +1,41 @@
+@import "constants";
+
+.link {
+  font: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 5px rgb(0 0 0 / 30%);
+  }
+
+  &_small {
+    padding: 0.375rem 1.1563rem;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 2px;
+  }
+
+  &_outlined {
+    color: $white-color;
+    background-color: transparent;
+    border: 1px solid $white-color;
+
+    &:hover {
+      color: $black-color;
+      background-color: $white-color;
+    }
+  }
+
+  &_medium {
+    padding: 1rem 2rem;
+    font-size: 14px;
+  }
+
+  &_white {
+    color: $black-color;
+    background-color: $white-color;
+  }
+}

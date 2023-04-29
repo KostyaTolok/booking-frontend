@@ -1,0 +1,34 @@
+.scroll-list-title {
+  line-height: 28px;
+}
+
+.react-horizontal-scrolling-menu--wrapper {
+  .arrow {
+    align-self: center;
+  }
+
+  .react-horizontal-scrolling-menu--arrow-right {
+    margin-right: 2rem;
+  }
+
+  .react-horizontal-scrolling-menu--item:first-child {
+    .card {
+      margin-left: 2px;
+    }
+  }
+
+  .react-horizontal-scrolling-menu--item:last-child {
+    .card {
+      margin-right: 2px;
+    }
+  }
+
+  .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .react-horizontal-scrolling-menu--scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
