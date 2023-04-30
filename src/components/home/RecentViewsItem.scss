@@ -1,0 +1,38 @@
+@import "constants";
+
+.recent-views-item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 27.5625rem;
+  height: 7.3125rem;
+  margin: 1rem 1.25rem 1rem 0;
+
+  &__image {
+    width: 9.3125rem;
+    object-fit: cover;
+  }
+
+  &__info {
+    padding: 1.3125rem 1.0625rem 0.625rem 0.875rem;
+  }
+
+  &__title {
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  &__subtitle {
+    margin-top: 0.625rem;
+    color: $dim-grey-color;
+    font-weight: 400;
+    font-family: $secondary-font;
+    line-height: 22px;
+  }
+
+  &__rating {
+    position: absolute;
+    right: 1.0625rem;
+    bottom: 0.625rem;
+  }
+}

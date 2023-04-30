@@ -1,0 +1,25 @@
+@import "constants";
+@import "mixins";
+
+.guests-modal-wrapper {
+  flex-grow: 1;
+  padding-left: 3.3125rem;
+}
+
+.guests-modal {
+  @include modal;
+
+  min-width: 19.875rem;
+  padding: 2rem;
+
+  &__input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  &__quantity-label {
+    align-self: center;
+  }
+}

@@ -1,0 +1,10 @@
+@import "constants";
+
+.search-inputs {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  height: 2.5rem;
+  padding: 0.3125rem 3.3125rem;
+  background-color: $white-color;
+}

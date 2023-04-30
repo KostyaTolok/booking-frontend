@@ -1,0 +1,38 @@
+@import "constants";
+@import "fonts";
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+  font-size: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: $main-font;
+  font-style: normal;
+}
+
+main {
+  padding: 2.5rem 16.25rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+p,
+li,
+label,
+pre {
+  margin: 0;
+  color: $black-color;
+}
+
+a {
+  text-decoration: none;
+}

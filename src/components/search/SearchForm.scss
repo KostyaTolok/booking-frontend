@@ -1,0 +1,28 @@
+@import "constants";
+
+.search-form {
+  margin-top: 2.8125rem;
+  padding-bottom: 2.5rem;
+
+  &__heading {
+    color: $white-color;
+    line-height: 28px;
+  }
+
+  &__subtitle {
+    margin-top: 1.25rem;
+    color: $white-color;
+    font-size: 25px;
+    line-height: 28px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3.75rem;
+  }
+
+  &__button {
+    margin-left: 4.0625rem;
+  }
+}

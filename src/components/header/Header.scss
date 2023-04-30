@@ -1,0 +1,18 @@
+@import "constants";
+
+.header {
+  padding: 1.5625rem 16.25rem 0;
+  background-color: $orange-color;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+
+  &__logo {
+    color: $white-color;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 28px;
+  }
+}

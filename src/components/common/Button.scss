@@ -1,0 +1,29 @@
+@import "constants";
+
+.button {
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 5px rgb(0 0 0 / 30%);
+  }
+
+  &_medium {
+    width: 5.9375rem;
+    height: 3.125rem;
+    font-size: 14px;
+  }
+
+  &_white {
+    background-color: $white-color;
+  }
+
+  &_icon {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 16%);
+  }
+}

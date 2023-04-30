@@ -1,0 +1,12 @@
+@import "constants";
+
+.badge {
+  display: block;
+  padding: 0.2rem 0.875rem;
+  color: $white-color;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: $light-green-color;
+  border-radius: 8px;
+}
