@@ -1,0 +1,33 @@
+name: Deploy to App Engine
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploying to Google Cloud
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Deploy to App Engine
+      id: deploy
+      uses: google-github-actions/deploy-appengine@v0.2.0
+      with:
+        deliverables: app.yaml
+        version: v1
+        project_id: ${{ secrets.GCP_PROJECT }}
+        credentials: ${{ secrets.GCP_CREDENTIALS }}
+
+    - name: Build
+      run: | 
+        npm install
+        npm run build
+
+    - name: Test
+      run: curl "${{ steps.deploy.outputs.url }}"
