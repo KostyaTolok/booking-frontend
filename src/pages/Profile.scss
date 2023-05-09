@@ -1,0 +1,15 @@
+.profile {
+  &__input {
+    margin-top: 2rem !important;
+  }
+
+  &__button {
+    width: 100%;
+  }
+
+  .link {
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

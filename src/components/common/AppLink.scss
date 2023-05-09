@@ -18,7 +18,7 @@
     border-radius: 2px;
   }
 
-  &_outlined {
+  &_white-outlined {
     color: $white-color;
     background-color: transparent;
     border: 1px solid $white-color;
@@ -29,9 +29,18 @@
     }
   }
 
+  &_black-outlined {
+    color: $black-color;
+    background-color: transparent;
+    border: 1px solid $black-color;
+  }
+
   &_medium {
-    padding: 1rem 2rem;
+    padding: 1.1rem 2rem;
+    font-weight: 600;
     font-size: 14px;
+    line-height: 22px;
+    border-radius: 4px;
   }
 
   &_white {

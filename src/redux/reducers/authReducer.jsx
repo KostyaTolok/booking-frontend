@@ -1,7 +1,9 @@
-import { SET_IS_AUTHENTICATED_STATE } from "redux/constants";
+import { SET_FULL_NAME, SET_IS_AUTHENTICATED_STATE } from "redux/constants";
 
 const INITIAL_STATE = {
-  isAuthenticated: true,
+  isAuthenticated: false,
+  fullName: "",
+  refreshToken: "",
 };
 
 function authReducer(state = INITIAL_STATE, action) {
@@ -10,6 +12,11 @@ function authReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         isAuthenticated: action.isAuthenticated,
+      };
+    case SET_FULL_NAME:
+      return {
+        ...state,
+        accessToken: action.fullName,
       };
     default:
       return state;

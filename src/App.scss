@@ -1,13 +1,16 @@
 @import "constants";
 @import "fonts";
 
-html {
+html,
+body,
+#root {
   height: 100%;
   overflow-x: hidden;
   font-size: 100%;
 }
 
-body {
+body,
+#root {
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -16,6 +19,7 @@ body {
 }
 
 main {
+  flex: 1 0 auto;
   padding: 2.5rem 16.25rem;
 }
 
