@@ -1,1 +1,4 @@
 export const SET_IS_AUTHENTICATED_STATE = "SET_IS_AUTHENTICATED_STATE";
+export const SET_FULL_NAME = "SET_FULL_NAME";
+export const SET_ALERT = "SET_ALERT";
+export const CLOSE_ALERT = "CLOSE_ALERT";

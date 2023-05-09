@@ -6,13 +6,14 @@ import "react-date-range/dist/theme/default.css";
 import "./CalendarRangePicker.scss";
 import Modal from "components/common/Modal";
 import SearchTextField from "./SearchTextField";
+import { RANGE_PICKER_COLOR } from "constants/colors";
 
 function CalendarRangePicker() {
   const [range, setRange] = useState([
     {
       startDate: null,
       endDate: new Date(""),
-      color: "#E6A064",
+      color: RANGE_PICKER_COLOR,
       key: "selection",
     },
   ]);

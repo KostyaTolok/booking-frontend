@@ -16,8 +16,51 @@
     font-size: 14px;
   }
 
+  &_large {
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    line-height: 22px;
+    border-radius: 4px;
+  }
+
   &_white {
     background-color: $white-color;
+  }
+
+  &_orange {
+    color: $white-color;
+    background-color: $orange-color;
+  }
+
+  &_red {
+    color: $white-color;
+    background-color: $red-color;
+  }
+
+  &_red-outlined {
+    color: $red-color;
+    background-color: transparent;
+    border: 1px solid $red-color;
+  }
+
+  &_grey-outlined {
+    color: rgb(0 0 0 / 70%);
+    border: 1px solid rgb(0 0 0 / 50%);
+  }
+
+  &_black-outlined {
+    color: $black-color;
+    background-color: transparent;
+    border: 1px solid $black-color;
+  }
+
+  &_disabled {
+    color: rgb(0 0 0 / 50%);
+    cursor: default;
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 
   &_icon {

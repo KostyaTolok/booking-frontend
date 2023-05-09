@@ -1,0 +1,53 @@
+@import "constants";
+
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.form {
+  width: 26.625rem;
+  margin: 0 auto;
+  font-family: $secondary-font;
+
+  &__title,
+  &__subtitle {
+    font-weight: 500;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-family: $main-font;
+  }
+
+  &__subtitle {
+    margin: 0.875rem 0 1.5625rem;
+    color: $dim-grey-color;
+  }
+
+  &__input {
+    margin-bottom: 1.25rem !important;
+  }
+
+  &__button {
+    width: 100%;
+  }
+
+  &__text {
+    margin-top: 0.4rem;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  &__link {
+    color: $orange-color;
+  }
+
+  #resend-button {
+    margin-bottom: 1.25rem;
+  }
+}
