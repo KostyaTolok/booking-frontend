@@ -14,6 +14,7 @@ import {
   RESET_PASSWORD_LINK,
   UPDATE_PASSWORD_LINK,
   VERIFY_CODE_LINK,
+  HOTELS_LIST_LINK,
 } from "constants/links";
 import Login from "pages/Login";
 import AppAlert from "components/common/AppAlert";
@@ -27,6 +28,7 @@ import AuthService from "services/AuthService";
 import { Backdrop, CircularProgress } from "@mui/material";
 import UpdatePassword from "pages/UpdatePassword";
 import { GREY_COLOR } from "constants/colors";
+import HotelsListPage from "pages/HotelsListPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -52,6 +54,7 @@ function App() {
             <main>
               <Routes>
                 <Route path={HOME_LINK} element={<Home />} />
+                <Route path={HOTELS_LIST_LINK} element={<HotelsListPage />} />
                 <Route path={REGISTER_LINK} element={<Register />} />
                 <Route path={LOGIN_LINK} element={<Login />} />
                 <Route path={RESET_PASSWORD_LINK} element={<ResetPasswordSendEmail />} />

@@ -9,7 +9,7 @@ class AuthService {
   static getTokenOptions(token) {
     return {
       expires: new Date(jwtDecode(token).exp * 1000),
-      sameSite: "strict",
+      sameSite: "none",
     };
   }
 

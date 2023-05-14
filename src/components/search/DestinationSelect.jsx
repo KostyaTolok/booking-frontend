@@ -1,16 +1,19 @@
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { useEffect, useState } from "react";
-import Modal from "components/common/Modal";
 import "./DestinationSelect.scss";
 import SearchTextField from "./SearchTextField";
 import { SearchApiService } from "services/SearchApiService";
+import { useDispatch, useSelector } from "react-redux";
+import { setDestination } from "redux/actions/hotelsListActions";
+import AppPopper from "components/common/AppPopper";
+import { setDestinationTooltipOpen } from "redux/actions/tooltipsActions";
 
-function DestinationSelect() {
+function DestinationSelect(props) {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const [selectedCity, setCity] = useState({
-    name: "",
-    id: -1,
-  });
+  const [anchorEl, setAnchorEl] = useState(null);
+  const destination = useSelector((store) => store.hotelsList.destination);
+  const tooltipOpen = useSelector((store) => store.tooltips.destinationTooltipOpen);
   const [citiesLoaded, setCitiesLoaded] = useState(false);
   const [cities, setCities] = useState([]);
 
@@ -27,54 +30,62 @@ function DestinationSelect() {
         setCitiesLoaded(true);
       });
     }
-  });
+  }, [citiesLoaded]);
 
-  function handleListItemClick(index, name) {
-    setCity({
-      name: name,
-      index: index,
-    });
+  function handleClick(event) {
+    setAnchorEl(event.currentTarget);
+    setOpen(true);
+    dispatch(setDestinationTooltipOpen(false));
+  }
+
+  function handleListItemClick(id, name) {
+    dispatch(
+      setDestination({
+        destinationId: id,
+        destination: name,
+      })
+    );
     setOpen(false);
   }
 
   function handleInputChange(event) {
     let selectedName = event.target.value;
-    setCity({
-      ...selectedCity,
-      name: selectedName,
-    });
+    dispatch(
+      setDestination({
+        destination: selectedName,
+      })
+    );
+    setOpen(true);
   }
 
   const filteredCities = cities.filter((city) => {
-    return city.name.toLowerCase().includes(selectedCity.name.toLowerCase());
+    return city.name.toLowerCase().includes(destination.toLowerCase());
   });
 
   return (
     <div className="destination-select-wrapper">
       <SearchTextField
-        value={selectedCity.name}
-        label="Destination"
+        value={destination}
+        label={!props.aside ? "Destination" : undefined}
+        hiddenLabel={props.aside}
         onChange={(event) => handleInputChange(event)}
-        onClick={() => setOpen(!open)}
+        onClick={handleClick}
+        tooltip={"To start searching, enter a destination"}
+        tooltipOpen={tooltipOpen}
       />
-      <Modal open={open} setOpen={setOpen}>
-        <div className="destination-modal">
-          <List>
-            {filteredCities.map((city) => {
-              return (
-                <ListItem disablePadding key={city.id}>
-                  <ListItemButton
-                    selected={city.id === selectedCity.id}
-                    onClick={() => handleListItemClick(city.id, city.name)}
-                  >
-                    <ListItemText primary={city.name} />
-                  </ListItemButton>
-                </ListItem>
-              );
-            })}
-          </List>
-        </div>
-      </Modal>
+      <AppPopper open={open} setOpen={setOpen} anchorEl={anchorEl}>
+        <List>
+          {filteredCities.map((city) => {
+            return (
+              <ListItem disablePadding key={city.id}>
+                <ListItemButton onClick={() => handleListItemClick(city.id, city.name)}>
+                  <ListItemText primary={city.name} />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
+        </List>
+      </AppPopper>
     </div>
   );
 }
