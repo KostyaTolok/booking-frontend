@@ -5,6 +5,12 @@
   height: 4.3125rem;
   margin: 1rem 1.25rem 1rem 0;
   padding: 1rem 1.1875rem;
+  cursor: pointer;
+
+  &__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__title,
   &__subtitle {

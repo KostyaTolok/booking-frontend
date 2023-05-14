@@ -1,0 +1,45 @@
+.hotel-list-item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 11.8125rem;
+  margin-bottom: 1.875rem;
+
+  &__info {
+    padding: 1rem 2rem 1rem 1.25rem;
+  }
+
+  &__image {
+    width: 17.75rem;
+    object-fit: cover;
+  }
+
+  &__name-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  &__description {
+    display: -webkit-box;
+    margin-top: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+  &__price {
+    position: absolute;
+    right: 2rem;
+    bottom: 1.5625rem;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

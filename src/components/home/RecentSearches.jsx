@@ -1,27 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./RecentSearches.scss";
 import RecentSearchesItem from "./RecentSearchesItem";
 import ScrollList from "components/common/ScrollList";
+import { LocalStorageService } from "services/LocalStorageService";
 
 function RecentSearches() {
-  const getItems = () =>
-    Array(5)
-      .fill(0)
-      .map((_, ind) => ({
-        id: `${ind}`,
-        title: "Chicago",
-        subtitle: "Sep 26 - Sep 27",
-      }));
+  const [searches, setSearches] = useState([]);
 
-  const [items] = useState(getItems);
+  useEffect(() => {
+    let searches = LocalStorageService.getRecentSearches();
+    setSearches(searches);
+  }, []);
+
+  function onCrossIconClick(event, index) {
+    event.stopPropagation();
+    let tempSearches = [...searches];
+    tempSearches.splice(index, 1);
+    LocalStorageService.removeRecentSearch(index);
+    setSearches(tempSearches);
+  }
 
   return (
     <>
-      {items.length !== 0 && (
+      {searches.length !== 0 && (
         <div className="recent-searches-wrapper">
           <ScrollList title="Recent Searches">
-            {items.map((item) => (
-              <RecentSearchesItem itemId={item.id} key={item.id} {...item} />
+            {searches.map((search, index) => (
+              <RecentSearchesItem itemId={index} key={index} onCrossIconClick={onCrossIconClick} {...search} />
             ))}
           </ScrollList>
         </div>

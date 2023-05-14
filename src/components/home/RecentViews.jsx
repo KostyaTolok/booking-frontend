@@ -1,22 +1,10 @@
 import { useState } from "react";
 import ScrollList from "components/common/ScrollList";
 import "./RecentViews.scss";
-import placeholder from "images/placeholder.png";
 import RecentViewsItem from "./RecentViewsItem";
 
 function RecentViews() {
-  const getItems = () =>
-    Array(5)
-      .fill(0)
-      .map((_, ind) => ({
-        id: `${ind}`,
-        title: "Hotel Name Chi Knickerbocker",
-        subtitle: "Chicago",
-        rating: "7.6",
-        image: placeholder,
-      }));
-
-  const [items] = useState(getItems);
+  const [items] = useState([]);
 
   return (
     <>

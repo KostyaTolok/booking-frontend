@@ -1,0 +1,37 @@
+@import "constants";
+
+.search-filters {
+  &__title {
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    font-family: $secondary-font;
+  }
+
+  &__checkbox-input {
+    display: flex !important;
+    justify-content: space-between;
+    margin-left: 0 !important;
+  }
+
+  .price-range-wrapper {
+    margin: 0.625rem 0.625rem 0;
+  }
+}
+
+.MuiSlider-root {
+  color: $dim-grey-color !important;
+}
+
+.MuiSlider-thumb {
+  color: $white-color;
+  border: 1px solid $black-color;
+}
+
+.MuiSlider-track {
+  color: $black-color;
+  border: none !important;
+}

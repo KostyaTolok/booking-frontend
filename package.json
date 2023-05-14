@@ -22,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-horizontal-scrolling-menu": "^4.0.4",
+    "react-image": "^4.1.0",
     "react-material-ui-carousel": "^3.4.2",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
@@ -33,7 +34,7 @@
     "yup-password": "^0.2.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "GENERATE_SOURCEMAP=false react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -69,6 +70,7 @@
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
     "sass-loader": "^13.2.2",
+    "source-map-loader": "^4.0.1",
     "stylelint": "^15.6.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^9.0.0",
