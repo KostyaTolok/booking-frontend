@@ -131,7 +131,7 @@ function Profile() {
         navigate(VERIFY_CODE_LINK, { state: { email: getValues().email } });
       })
       .catch((error) => {
-        AlertsService.showError(error);
+        AlertsService.showAlert(error);
       });
   }
 

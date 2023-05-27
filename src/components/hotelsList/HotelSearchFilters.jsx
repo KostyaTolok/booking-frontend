@@ -1,16 +1,16 @@
-import { Checkbox, Divider, FormControlLabel, Paper, Slider } from "@mui/material";
-import "./SearchFilters.scss";
+import { Checkbox, Divider, FormControlLabel, Slider } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { MAX_ROOM_PRICE, MIN_ROOM_PRICE } from "constants/values";
 import {
-  setIsKitchenPresent,
-  setIsWashingMachinePresent,
-  setIsWifiPresent,
-  setPriceRange,
+  setIsHotelKitchenPresent,
+  setIsHotelWashingMachinePresent,
+  setIsHotelWifiPresent,
+  setHotelPriceRange,
 } from "redux/actions/hotelsListActions";
+import AppSearchFilters from "components/common/AppSearchFilters";
 
-function SearchFilters(props) {
+function HotelSearchFilters(props) {
   const dispatch = useDispatch();
   const lowPrice = useSelector((store) => store.hotelsList.lowPrice);
   const highPrice = useSelector((store) => store.hotelsList.highPrice);
@@ -25,7 +25,7 @@ function SearchFilters(props) {
   }
 
   function handlePriceRangeChangeCommited(event, value) {
-    dispatch(setPriceRange({ lowPrice: value[0], highPrice: value[1] }));
+    dispatch(setHotelPriceRange({ lowPrice: value[0], highPrice: value[1] }));
     props.refreshHotels();
   }
 
@@ -34,7 +34,7 @@ function SearchFilters(props) {
   }, []);
 
   return (
-    <Paper className="search-filters" variant="outlined" sx={{ paddingY: 0.5, paddingX: 1.25, marginTop: 3.75 }}>
+    <AppSearchFilters>
       <p className="search-filters__title">Price range</p>
       <div className="price-range-wrapper">
         <p className="search-filters__subtitle">{`${lowPrice}$ - ${highPrice}$`}</p>
@@ -58,7 +58,7 @@ function SearchFilters(props) {
             sx={{ color: "black", "&.Mui-checked": { color: "black" } }}
             checked={isWifiPresent}
             onChange={() => {
-              dispatch(setIsWifiPresent(!isWifiPresent));
+              dispatch(setIsHotelWifiPresent(!isWifiPresent));
               props.refreshHotels();
             }}
           />
@@ -73,7 +73,7 @@ function SearchFilters(props) {
             sx={{ color: "black", "&.Mui-checked": { color: "black" } }}
             checked={isKitchenPresent}
             onChange={() => {
-              dispatch(setIsKitchenPresent(!isKitchenPresent));
+              dispatch(setIsHotelKitchenPresent(!isKitchenPresent));
               props.refreshHotels();
             }}
           />
@@ -88,7 +88,7 @@ function SearchFilters(props) {
             sx={{ color: "black", "&.Mui-checked": { color: "black" } }}
             checked={isWashingMachinePresent}
             onChange={() => {
-              dispatch(setIsWashingMachinePresent(!isWashingMachinePresent));
+              dispatch(setIsHotelWashingMachinePresent(!isWashingMachinePresent));
               props.refreshHotels();
             }}
           />
@@ -97,8 +97,8 @@ function SearchFilters(props) {
         labelPlacement="start"
         className="search-filters__checkbox-input"
       />
-    </Paper>
+    </AppSearchFilters>
   );
 }
 
-export default SearchFilters;
+export default HotelSearchFilters;

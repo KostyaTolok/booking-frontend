@@ -26,21 +26,21 @@ export function setDateRange(startDate, endDate) {
   };
 }
 
-export function setNumberOfGuests(numberOfGuests) {
+export function setHotelNumberOfGuests(numberOfGuests) {
   return {
     type: SET_NUMBER_OF_GUESTS,
     numberOfGuests: numberOfGuests,
   };
 }
 
-export function setNumberOfRooms(numberOfRooms) {
+export function setHotelNumberOfRooms(numberOfRooms) {
   return {
     type: SET_NUMBER_OF_ROOMS,
     numberOfRooms: numberOfRooms,
   };
 }
 
-export function setPriceRange({ lowPrice, highPrice }) {
+export function setHotelPriceRange({ lowPrice, highPrice }) {
   return {
     type: SET_PRICE_RANGE,
     lowPrice: lowPrice,
@@ -48,21 +48,21 @@ export function setPriceRange({ lowPrice, highPrice }) {
   };
 }
 
-export function setIsWifiPresent(isWifiPresent) {
+export function setIsHotelWifiPresent(isWifiPresent) {
   return {
     type: SET_IS_WIFI_PRESENT,
     isWifiPresent: isWifiPresent,
   };
 }
 
-export function setIsKitchenPresent(isKitchenPresent) {
+export function setIsHotelKitchenPresent(isKitchenPresent) {
   return {
     type: SET_IS_KITCHEN_PRESENT,
     isKitchenPresent: isKitchenPresent,
   };
 }
 
-export function setIsWashingMachinePresent(isWashingMachinePresent) {
+export function setIsHotelWashingMachinePresent(isWashingMachinePresent) {
   return {
     type: SET_IS_WASHING_MACHINE_PRESENT,
     isWashingMachinePresent: isWashingMachinePresent,

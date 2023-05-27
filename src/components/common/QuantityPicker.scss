@@ -1,8 +1,8 @@
 @import "constants";
 
 .quantity-picker {
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
   border: 1px solid $grey-color;
   border-radius: 3px;
 
@@ -13,6 +13,7 @@
   }
 
   &__modifier {
+    flex-shrink: 1;
     width: 3rem;
     height: 100%;
     font-size: 1.5rem;
@@ -24,6 +25,7 @@
   }
 
   &__display {
+    flex-shrink: 1;
     width: 4rem;
     padding: 0.5rem;
     font-size: 1.5rem;

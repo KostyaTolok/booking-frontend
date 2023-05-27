@@ -7,10 +7,14 @@ import GuestsModal from "components/search/GuestsModal";
 import { useDispatch, useSelector } from "react-redux";
 import { setDatesTooltipOpen, setDestinationTooltipOpen } from "redux/actions/tooltipsActions";
 import { LocalStorageService } from "services/LocalStorageService";
+import { useLocation, useNavigate } from "react-router-dom";
+import { HOTELS_LIST_LINK } from "constants/links";
 
 function AsideSearchForm(props) {
   const hotelsList = useSelector((store) => store.hotelsList);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   function handleSearchClick() {
     if (hotelsList.destination === "") {
@@ -20,7 +24,6 @@ function AsideSearchForm(props) {
     } else {
       dispatch(setDestinationTooltipOpen(false));
       dispatch(setDatesTooltipOpen(false));
-      props.refreshHotels();
       LocalStorageService.addRecentSearch({
         destinationId: hotelsList.destinationId,
         destination: hotelsList.destination,
@@ -29,6 +32,12 @@ function AsideSearchForm(props) {
         startDate: hotelsList.startDate,
         endDate: hotelsList.endDate,
       });
+
+      if (location.pathname === HOTELS_LIST_LINK) {
+        props.refreshHotels();
+      } else {
+        navigate(HOTELS_LIST_LINK);
+      }
     }
   }
 

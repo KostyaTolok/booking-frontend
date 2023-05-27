@@ -1,6 +1,6 @@
-import "./Card.scss";
+import "./AppCard.scss";
 
-function Card(props) {
+function AppCard(props) {
   const { className, ...other } = props;
 
   return (
@@ -10,4 +10,4 @@ function Card(props) {
   );
 }
 
-export default Card;
+export default AppCard;

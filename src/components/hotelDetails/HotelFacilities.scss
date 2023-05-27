@@ -1,0 +1,26 @@
+.hotel-facilities {
+  &__title {
+    font-size: 1.25rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1.25rem;
+  }
+
+  &__facility {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &:nth-child(2) {
+      margin-left: 2.5rem;
+    }
+  }
+
+  &__facility-text {
+    margin-left: 0.625rem;
+  }
+}

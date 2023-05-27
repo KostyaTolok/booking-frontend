@@ -4,8 +4,8 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  width: 27.5625rem;
-  height: 7.3125rem;
+  width: 29.5625rem;
+  height: 9.3125rem;
   margin: 1rem 1.25rem 1rem 0;
 
   &__image {
@@ -22,12 +22,23 @@
     line-height: 22px;
   }
 
+  &__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__subtitle {
+    display: -webkit-box;
+    width: 80%;
     margin-top: 0.625rem;
+    overflow: hidden;
     color: $dim-grey-color;
     font-weight: 400;
     font-family: $secondary-font;
     line-height: 22px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 
   &__rating {

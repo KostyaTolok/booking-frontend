@@ -1,4 +1,4 @@
-const IP_ADDRESS = "34.118.97.246";
+const IP_ADDRESS = process.env.REACT_APP_BACKEND_IP_ADDRESS;
 
 export const API_BASE_URL = `http://${IP_ADDRESS}`;
 export const SEARCH_API_BASE_URL = `${API_BASE_URL}/search/api`;
