@@ -6,3 +6,4 @@ export const RESET_PASSWORD_LINK = "/reset-password";
 export const PROFILE_LINK = "/profile";
 export const UPDATE_PASSWORD_LINK = "/update-password";
 export const HOTELS_LIST_LINK = "/hotels";
+export const ROOM_LINK = "/rooms";

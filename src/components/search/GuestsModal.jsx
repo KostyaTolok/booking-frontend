@@ -4,7 +4,7 @@ import QuantityPicker from "components/common/QuantityPicker";
 import SearchTextField from "./SearchTextField";
 import AppPopper from "components/common/AppPopper";
 import { useDispatch, useSelector } from "react-redux";
-import { setNumberOfGuests, setNumberOfRooms } from "redux/actions/hotelsListActions";
+import { setHotelNumberOfGuests, setHotelNumberOfRooms } from "redux/actions/hotelsListActions";
 
 function GuestsModal(props) {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function GuestsModal(props) {
               minValue={0}
               maxValue={10}
               defaultValue={rooms}
-              onChange={(value) => dispatch(setNumberOfRooms(value))}
+              onChange={(value) => dispatch(setHotelNumberOfRooms(value))}
             />
           </div>
           <div className="guests-modal__input-group">
@@ -44,7 +44,7 @@ function GuestsModal(props) {
               minValue={0}
               maxValue={10}
               defaultValue={guests}
-              onChange={(value) => dispatch(setNumberOfGuests(value))}
+              onChange={(value) => dispatch(setHotelNumberOfGuests(value))}
             />
           </div>
         </div>

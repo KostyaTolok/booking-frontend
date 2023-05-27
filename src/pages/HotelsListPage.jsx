@@ -5,7 +5,7 @@ import { SearchApiService } from "services/SearchApiService";
 import { Grid } from "@mui/material";
 import AsideSearchForm from "components/search/AsideSearchForm";
 import HotelsList from "components/hotelsList/HotelsList";
-import SearchFilters from "components/hotelsList/SearchFilters";
+import HotelSearchFilters from "components/hotelsList/HotelSearchFilters";
 import SortHotelsDropdown from "components/hotelsList/SortHotelsDropdown";
 
 function HotelsListPage() {
@@ -49,7 +49,7 @@ function HotelsListPage() {
     <Grid container spacing={3.75}>
       <Grid item xs={3}>
         <AsideSearchForm refreshHotels={refreshHotels} />
-        <SearchFilters refreshHotels={refreshHotels} />
+        <HotelSearchFilters refreshHotels={refreshHotels} />
       </Grid>
       <Grid item xs={9}>
         <SortHotelsDropdown refreshHotels={refreshHotels} />

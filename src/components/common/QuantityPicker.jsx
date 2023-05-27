@@ -22,7 +22,7 @@ function QuantityPicker(props) {
   }
 
   return (
-    <span className="quantity-picker">
+    <div className="quantity-picker">
       <Button type="button" className="quantity-picker__modifier" onClick={decrementValue}>
         -
       </Button>
@@ -30,7 +30,7 @@ function QuantityPicker(props) {
       <Button type="button" className="quantity-picker__modifier" onClick={incrementValue}>
         +
       </Button>
-    </span>
+    </div>
   );
 }
 

@@ -1,9 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import "./RecentSearchesItem.scss";
-import Card from "components/common/Card";
+import AppCard from "components/common/AppCard";
 import { DateFormatterService } from "services/DateFormatterService";
 import { useDispatch } from "react-redux";
-import { setDateRange, setDestination, setNumberOfGuests, setNumberOfRooms } from "redux/actions/hotelsListActions";
+import {
+  setDateRange,
+  setDestination,
+  setHotelNumberOfGuests,
+  setHotelNumberOfRooms,
+} from "redux/actions/hotelsListActions";
 import { HOTELS_LIST_LINK } from "constants/links";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { ORANGE_COLOR } from "constants/colors";
@@ -20,13 +25,13 @@ function RecentSearchesItem(props) {
       })
     );
     dispatch(setDateRange(props.startDate, props.endDate));
-    dispatch(setNumberOfGuests(props.numberOfGuests));
-    dispatch(setNumberOfRooms(props.numberOfRooms));
+    dispatch(setHotelNumberOfGuests(props.numberOfGuests));
+    dispatch(setHotelNumberOfRooms(props.numberOfRooms));
     navigate(HOTELS_LIST_LINK);
   }
 
   return (
-    <Card className="recent-searches-item" onClick={handleClick}>
+    <AppCard className="recent-searches-item" onClick={handleClick}>
       <div className="recent-searches-item__title-wrapper">
         <p className="recent-searches-item__title">{props.destination}</p>
         <CloseRoundedIcon
@@ -38,7 +43,7 @@ function RecentSearchesItem(props) {
         {DateFormatterService.toSearchDateRangeString(new Date(props.startDate))} -{" "}
         {DateFormatterService.toSearchDateRangeString(new Date(props.endDate))}
       </p>
-    </Card>
+    </AppCard>
   );
 }
 

@@ -92,7 +92,7 @@ function Register() {
               navigate(VERIFY_CODE_LINK, { state: { email: data.email } });
             })
             .catch((error) => {
-              AlertsService.showError(error);
+              AlertsService.showAlert(error);
             });
         });
       })

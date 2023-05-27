@@ -29,6 +29,7 @@ import { Backdrop, CircularProgress } from "@mui/material";
 import UpdatePassword from "pages/UpdatePassword";
 import { GREY_COLOR } from "constants/colors";
 import HotelsListPage from "pages/HotelsListPage";
+import HotelDetailsPage from "pages/HotelDetailsPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -55,6 +56,7 @@ function App() {
               <Routes>
                 <Route path={HOME_LINK} element={<Home />} />
                 <Route path={HOTELS_LIST_LINK} element={<HotelsListPage />} />
+                <Route path={`${HOTELS_LIST_LINK}/:id`} element={<HotelDetailsPage />} />
                 <Route path={REGISTER_LINK} element={<Register />} />
                 <Route path={LOGIN_LINK} element={<Login />} />
                 <Route path={RESET_PASSWORD_LINK} element={<ResetPasswordSendEmail />} />

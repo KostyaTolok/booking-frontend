@@ -63,6 +63,14 @@
     }
   }
 
+  &_rounded {
+    border-radius: 10px;
+  }
+
+  &_full-width {
+    width: 100%;
+  }
+
   &_icon {
     width: fit-content;
     height: fit-content;

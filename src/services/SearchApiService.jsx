@@ -50,4 +50,42 @@ export class SearchApiService {
     let response = this.searchApiPublicFetcher.get("hotels/", { params: queryParams });
     return response;
   }
+
+  static getHotelDetails = (hotelId) => {
+    let response = this.searchApiPublicFetcher.get(`hotels/${hotelId}/`);
+    return response;
+  };
+
+  static getHotelRooms = ({
+    hotelId,
+    lowRoomPrice,
+    highRoomPrice,
+    bedNumber,
+    roomsNumber,
+    hasKitchen,
+    hasWashingMachine,
+    sortRoomsByPrice,
+    isDescendingOrder,
+  }) => {
+    const getOrder = () => {
+      let field = null;
+      if (sortRoomsByPrice) {
+        field = "price";
+      }
+      return isDescendingOrder ? "-" + field : field;
+    };
+
+    let queryParams = {
+      hotel: hotelId,
+      price_min: lowRoomPrice,
+      price_max: highRoomPrice,
+      beds_number: bedNumber,
+      rooms_number: roomsNumber,
+      has_kitchen: hasKitchen ? hasKitchen : "",
+      has_washing_machine: hasWashingMachine ? hasWashingMachine : "",
+      order: getOrder(),
+    };
+    let response = this.searchApiPublicFetcher.get(`rooms/`, { params: queryParams });
+    return response;
+  };
 }
