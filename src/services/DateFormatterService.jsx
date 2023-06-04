@@ -6,6 +6,12 @@ export class DateFormatterService {
   }
 
   static toSearchDateRangeString(date) {
-    return format(date, "dd MMM");
+    return format(date, "d MMM");
+  }
+
+  static getDaysBetweenDates(startDate, endDate) {
+    let difference = endDate.getTime() - startDate.getTime();
+    let days = Math.ceil(difference / (1000 * 3600 * 24));
+    return days + 1;
   }
 }

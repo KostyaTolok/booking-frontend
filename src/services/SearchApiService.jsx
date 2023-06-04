@@ -88,4 +88,14 @@ export class SearchApiService {
     let response = this.searchApiPublicFetcher.get(`rooms/`, { params: queryParams });
     return response;
   };
+
+  static getRoomDetails = (roomId) => {
+    let response = this.searchApiPublicFetcher.get(`rooms/${roomId}/`);
+    return response;
+  };
+
+  static getMyBookings = () => {
+    let response = this.searchApiPrivateFetcher.get("bookings/me/");
+    return response;
+  };
 }

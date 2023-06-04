@@ -1,6 +1,6 @@
 import "./Button.scss";
 
-function Button(props) {
+export function Button(props) {
   const { className, ...other } = props;
 
   return (

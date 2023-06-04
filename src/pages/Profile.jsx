@@ -15,6 +15,8 @@ import AlertsService from "services/AlertsService";
 import { ALERT_SEVERITIES } from "constants/enums";
 import AppLink from "components/common/AppLink";
 import AppDialog from "components/common/AppDialog";
+import BookingsList from "components/profile/BookingsList";
+import { SearchApiService } from "services/SearchApiService";
 
 const userInfoValidationSchema = yup.object({
   email: yup
@@ -52,6 +54,7 @@ function Profile() {
     onConfirm: null,
   });
   const [openDialog, setOpenDialog] = useState(false);
+  const [bookings, setBookings] = useState([]);
 
   function onLogoutClick() {
     AuthService.logout();
@@ -105,6 +108,14 @@ function Profile() {
           email: email,
         });
         showUnverifiedEmailAlert();
+      });
+
+    SearchApiService.getMyBookings()
+      .then((response) => {
+        setBookings(response.data);
+      })
+      .catch((error) => {
+        AlertsService.showAlert(error);
       });
   }, []);
 
@@ -180,6 +191,7 @@ function Profile() {
           </Button>
         </Stack>
       </form>
+      <BookingsList bookings={bookings} />
     </div>
   );
 }
