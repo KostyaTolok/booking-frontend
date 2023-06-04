@@ -8,6 +8,7 @@ import QRCode from "react-qr-code";
 import { ORANGE_COLOR } from "constants/colors";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import AppLoader from "components/common/AppLoader";
+import { ALERT_SEVERITIES } from "constants/enums";
 
 function BookingsList(props) {
   const [qrModalOpen, setQrModalOpen] = useState(false);
@@ -17,7 +18,6 @@ function BookingsList(props) {
 
   function handleClose() {
     setQrModalOpen(false);
-    setCurrentQrToken(null);
   }
 
   function handleShowQrClick(apartmentId, bookingId) {
@@ -35,7 +35,14 @@ function BookingsList(props) {
           setLoading(false);
         })
         .catch((error) => {
-          AlertsService.showAlert(error);
+          if (error?.response?.status == 404 || error?.response?.status == 403) {
+            AlertsService.showAlert(
+              "Booking not started. QR code is only available on its dates span.",
+              ALERT_SEVERITIES.WARNING
+            );
+          } else {
+            AlertsService.showAlert(error);
+          }
           setLoading(false);
         });
     }
