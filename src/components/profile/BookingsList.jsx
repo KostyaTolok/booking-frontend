@@ -7,11 +7,13 @@ import AlertsService from "services/AlertsService";
 import QRCode from "react-qr-code";
 import { ORANGE_COLOR } from "constants/colors";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import AppLoader from "components/common/AppLoader";
 
 function BookingsList(props) {
   const [qrModalOpen, setQrModalOpen] = useState(false);
   const [currentQrToken, setCurrentQrToken] = useState();
   const [qrTokens, setQrTokens] = useState({});
+  const [loading, setLoading] = useState(false);
 
   function handleClose() {
     setQrModalOpen(false);
@@ -23,20 +25,25 @@ function BookingsList(props) {
       setCurrentQrToken(qrTokens[bookingId]);
       setQrModalOpen(true);
     } else {
+      setLoading(true);
+
       BookingTokenApiService.getBookingQrToken(apartmentId)
         .then((response) => {
           setCurrentQrToken(response.data);
           setQrModalOpen(true);
           setQrTokens({ ...qrTokens, [bookingId]: response.data });
+          setLoading(false);
         })
         .catch((error) => {
           AlertsService.showAlert(error);
+          setLoading(false);
         });
     }
   }
 
   return (
     <div className="booking-list">
+      <AppLoader open={loading} />
       <h1 className="booking-list__title">Bookings</h1>
       {props.bookings.length !== 0 ? (
         props.bookings.map((booking) => (

@@ -1,5 +1,4 @@
 import { KitchenOutlined, LocalLaundryServiceOutlined } from "@mui/icons-material";
-import "./RoomFacilities.scss";
 import Facilities from "components/common/Facilities";
 
 function RoomFacilities(props) {
