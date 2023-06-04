@@ -13,4 +13,4 @@ export const USERS_ME_URL = `${USERS_API_BASE_URL}${USERS_ME_URL_PATH}`;
 
 export const PAYMENTS_API_BASE_URL = `${API_BASE_URL}/payments/api/v1`;
 
-export const BOOKING_TOKEN_BASE_URL = `http://tmyjvl0g7l.execute-api.us-west-2.amazonaws.com/`;
+export const BOOKING_TOKEN_BASE_URL = `https://tmyjvl0g7l.execute-api.us-west-2.amazonaws.com/`;

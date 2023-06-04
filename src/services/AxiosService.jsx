@@ -20,7 +20,6 @@ export class AxiosService {
       headers: {
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     });
 
     fetcher.interceptors.request.use(
