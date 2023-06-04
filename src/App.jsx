@@ -15,6 +15,8 @@ import {
   UPDATE_PASSWORD_LINK,
   VERIFY_CODE_LINK,
   HOTELS_LIST_LINK,
+  ROOM_LINK,
+  CHECKOUT_LINK,
 } from "constants/links";
 import Login from "pages/Login";
 import AppAlert from "components/common/AppAlert";
@@ -25,11 +27,12 @@ import Profile from "pages/Profile";
 import PrivateRoute from "utils/PrivateRoute";
 import { useEffect, useState } from "react";
 import AuthService from "services/AuthService";
-import { Backdrop, CircularProgress } from "@mui/material";
 import UpdatePassword from "pages/UpdatePassword";
-import { GREY_COLOR } from "constants/colors";
 import HotelsListPage from "pages/HotelsListPage";
 import HotelDetailsPage from "pages/HotelDetailsPage";
+import RoomDetailsPage from "pages/RoomDetailsPage";
+import CheckoutPage from "pages/CheckoutPage";
+import AppLoader from "components/common/AppLoader";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -57,6 +60,7 @@ function App() {
                 <Route path={HOME_LINK} element={<Home />} />
                 <Route path={HOTELS_LIST_LINK} element={<HotelsListPage />} />
                 <Route path={`${HOTELS_LIST_LINK}/:id`} element={<HotelDetailsPage />} />
+                <Route path={`${HOTELS_LIST_LINK}/:id/${ROOM_LINK}/:roomId`} element={<RoomDetailsPage />} />
                 <Route path={REGISTER_LINK} element={<Register />} />
                 <Route path={LOGIN_LINK} element={<Login />} />
                 <Route path={RESET_PASSWORD_LINK} element={<ResetPasswordSendEmail />} />
@@ -85,6 +89,14 @@ function App() {
                     </PrivateRoute>
                   }
                 />
+                <Route
+                  path={CHECKOUT_LINK}
+                  element={
+                    <PrivateRoute>
+                      <CheckoutPage />
+                    </PrivateRoute>
+                  }
+                />
               </Routes>
             </main>
           </Router>
@@ -92,9 +104,7 @@ function App() {
           <Footer />
         </Provider>
       ) : (
-        <Backdrop sx={{ color: GREY_COLOR, zIndex: (theme) => theme.zIndex.drawer + 1 }} open={loading}>
-          <CircularProgress color="inherit" />
-        </Backdrop>
+        <AppLoader open={loading} />
       )}
     </>
   );

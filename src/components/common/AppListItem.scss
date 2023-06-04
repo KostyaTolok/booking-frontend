@@ -25,6 +25,17 @@
     font-size: 20px;
   }
 
+  &__name_large {
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  &__subtitle {
+    margin-top: 1.5rem;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
   &__description {
     display: -webkit-box;
     margin-top: 0.75rem;
@@ -41,5 +52,13 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 28px;
+  }
+
+  &__button {
+    position: absolute;
+    right: 2rem;
+    bottom: 1.5rem;
+    padding: 0.5625rem 5.0625rem;
+    font-size: 14px;
   }
 }

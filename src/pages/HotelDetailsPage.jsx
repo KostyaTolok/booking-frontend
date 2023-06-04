@@ -1,6 +1,6 @@
 import { Divider, Grid } from "@mui/material";
 import Button from "components/common/Button";
-import HotelDescription from "components/hotelDetails/HotelDescription";
+import Description from "components/common/Description";
 import HotelFacilities from "components/hotelDetails/HotelFacilities";
 import HotelInfo from "components/hotelDetails/HotelInfo";
 import HotelLocation from "components/hotelDetails/HotelLocation";
@@ -117,7 +117,7 @@ function HotelDetailsPage() {
         <Divider />
       </Grid>
       <Grid item xs={9}>
-        <HotelDescription text={hotel.description} />
+        <Description text={hotel.description} />
       </Grid>
       <Grid item xs={3}>
         <HotelFacilities hasWifi={hotel.hasWifi} hasParking={hotel.hasParking} />
