@@ -4,6 +4,7 @@ import alertReducer from "./alertReducer";
 import hotelsListReducer from "./hotelsListReducer";
 import tooltipsReducer from "./tooltipsReducer";
 import roomsListReducer from "./roomsListReducer";
+import notificationsReducer from "./notificationsReducer";
 
 const baseReducer = combineReducers({
   auth: authReducer,
@@ -11,6 +12,7 @@ const baseReducer = combineReducers({
   hotelsList: hotelsListReducer,
   tooltips: tooltipsReducer,
   roomsList: roomsListReducer,
+  notifications: notificationsReducer,
 });
 
 export default baseReducer;

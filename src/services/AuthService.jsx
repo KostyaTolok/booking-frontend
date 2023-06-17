@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 import { setIsAuthenticated } from "redux/actions/authActions";
 import store from "redux/store";
+import { NotificationsService } from "./NotificationsService";
 
 class AuthService {
   static getTokenOptions(token) {
@@ -17,6 +18,7 @@ class AuthService {
     Cookies.set("access_token", accessToken, this.getTokenOptions(accessToken));
     Cookies.set("refresh_token", refreshToken, this.getTokenOptions(refreshToken));
     store.dispatch(setIsAuthenticated(true));
+    NotificationsService.connectCentrifuge(accessToken);
   }
 
   static logout() {

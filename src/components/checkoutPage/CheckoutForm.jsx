@@ -4,11 +4,14 @@ import "./CheckoutForm.scss";
 import Button from "components/common/Button";
 import { useState } from "react";
 import AppLoader from "components/common/AppLoader";
+import { useNavigate } from "react-router-dom";
+import { HOME_LINK } from "constants/links";
 
 function CheckoutForm(props) {
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -17,12 +20,12 @@ function CheckoutForm(props) {
     stripe
       .confirmPayment({
         elements,
-        confirmParams: {
-          return_url: window.location.origin,
-        },
+        confirmParams: {},
+        redirect: "if_required",
       })
       .then(() => {
         setLoading(false);
+        navigate(HOME_LINK);
       })
       .catch((error) => {
         setLoading(false);

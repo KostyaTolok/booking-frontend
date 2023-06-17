@@ -17,6 +17,7 @@ import {
   HOTELS_LIST_LINK,
   ROOM_LINK,
   CHECKOUT_LINK,
+  NOTIFICATIONS_LINK,
 } from "constants/links";
 import Login from "pages/Login";
 import AppAlert from "components/common/AppAlert";
@@ -33,6 +34,7 @@ import HotelDetailsPage from "pages/HotelDetailsPage";
 import RoomDetailsPage from "pages/RoomDetailsPage";
 import CheckoutPage from "pages/CheckoutPage";
 import AppLoader from "components/common/AppLoader";
+import NotificationsPage from "pages/NotificationsPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -94,6 +96,14 @@ function App() {
                   element={
                     <PrivateRoute>
                       <CheckoutPage />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path={NOTIFICATIONS_LINK}
+                  element={
+                    <PrivateRoute>
+                      <NotificationsPage />
                     </PrivateRoute>
                   }
                 />

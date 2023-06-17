@@ -9,8 +9,8 @@ function BookingsListItem(props) {
         <p className="list-item__name_large">{props.hotel_name}</p>
         <p className="list-item__subtitle">{props.room_name}</p>
         <p className="list-item__subtitle">
-          {DateFormatterService.toSearchDateRangeString(new Date(props.start_date))} -{" "}
-          {DateFormatterService.toSearchDateRangeString(new Date(props.end_date))}
+          {DateFormatterService.toFullDateFormat(new Date(props.start_date))} -{" "}
+          {DateFormatterService.toFullDateFormat(new Date(props.end_date))}
         </p>
         <Button
           className="button_large button_orange button_rounded list-item__button"
