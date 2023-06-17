@@ -5,8 +5,12 @@ export class DateFormatterService {
     return format(date, "yyyy-MM-dd");
   }
 
-  static toSearchDateRangeString(date) {
+  static toShortDateFormat(date) {
     return format(date, "d MMM");
+  }
+
+  static toFullDateFormat(date) {
+    return format(date, "dd.MM.yyyy");
   }
 
   static getDaysBetweenDates(startDate, endDate) {

@@ -8,3 +8,4 @@ export const UPDATE_PASSWORD_LINK = "/update-password";
 export const HOTELS_LIST_LINK = "/hotels";
 export const ROOM_LINK = "rooms";
 export const CHECKOUT_LINK = "/checkout";
+export const NOTIFICATIONS_LINK = "/notifications";

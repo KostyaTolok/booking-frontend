@@ -1,15 +1,17 @@
 import "./AuthInfo.scss";
 import notificationIcon from "images/notification-icon.svg";
+import newNotificationIcon from "images/new-notification-icon.svg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AppLink from "components/common/AppLink";
-import { LOGIN_LINK, PROFILE_LINK, REGISTER_LINK } from "constants/links";
+import { LOGIN_LINK, NOTIFICATIONS_LINK, PROFILE_LINK, REGISTER_LINK } from "constants/links";
 import { useEffect, useState } from "react";
 import { UsersApiService } from "services/UsersApiService";
 import AlertsService from "services/AlertsService";
 
 function AuthInfo() {
   const isAuthenticated = useSelector((store) => store.auth.isAuthenticated);
+  const hasNotifications = useSelector((store) => store.notifications.hasNotifications);
   const [fullName, setFullName] = useState("");
 
   useEffect(() => {
@@ -28,8 +30,8 @@ function AuthInfo() {
     <div className="auth-info">
       {isAuthenticated ? (
         <>
-          <Link to="/">
-            <img src={notificationIcon} alt="Notifications"></img>
+          <Link to={NOTIFICATIONS_LINK}>
+            <img src={hasNotifications ? newNotificationIcon : notificationIcon} alt="Notifications"></img>
           </Link>
           <Link to={PROFILE_LINK}>
             <p className="auth-info__username">{fullName}</p>

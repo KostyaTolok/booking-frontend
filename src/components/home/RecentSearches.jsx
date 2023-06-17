@@ -3,12 +3,13 @@ import "./RecentSearches.scss";
 import RecentSearchesItem from "./RecentSearchesItem";
 import ScrollList from "components/common/ScrollList";
 import { LocalStorageService } from "services/LocalStorageService";
+import { RECENT_SEARCHES_KEY } from "constants/localStorage";
 
 function RecentSearches() {
   const [searches, setSearches] = useState([]);
 
   useEffect(() => {
-    let searches = LocalStorageService.getRecentSearches();
+    let searches = LocalStorageService.getArray(RECENT_SEARCHES_KEY);
     setSearches(searches);
   }, []);
 

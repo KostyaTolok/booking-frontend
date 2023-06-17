@@ -51,9 +51,9 @@ function CalendarRangePicker(props) {
         readOnly
         value={
           range[0].startDate & range[0].endDate
-            ? `${DateFormatterService.toSearchDateRangeString(
+            ? `${DateFormatterService.toShortDateFormat(
                 new Date(startDate)
-              )} - ${DateFormatterService.toSearchDateRangeString(new Date(endDate))}`
+              )} - ${DateFormatterService.toShortDateFormat(new Date(endDate))}`
             : ""
         }
         label={!props.aside ? "Dates" : undefined}

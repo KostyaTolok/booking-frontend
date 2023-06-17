@@ -3,12 +3,13 @@ import ScrollList from "components/common/ScrollList";
 import "./RecentViews.scss";
 import RecentViewsItem from "./RecentViewsItem";
 import { LocalStorageService } from "services/LocalStorageService";
+import { RECENT_VIEWS_KEY } from "constants/localStorage";
 
 function RecentViews() {
   const [views, setViews] = useState([]);
 
   useEffect(() => {
-    let views = LocalStorageService.getRecentViews();
+    let views = LocalStorageService.getArray(RECENT_VIEWS_KEY);
     setViews(views);
   }, []);
 

@@ -17,11 +17,17 @@ function AppTextField(props) {
           variant={props.variant || "standard"}
           onClick={props.onClick}
           type={props.type}
-          InputProps={{
-            disableUnderline: props.underline || true,
-            readOnly: props.readOnly,
-            endAdornment: <InputAdornment position="end">{props.endAdornment}</InputAdornment>,
-          }}
+          InputProps={
+            props.variant == "outlined"
+              ? {
+                  readOnly: props.readOnly,
+                }
+              : {
+                  disableUnderline: true,
+                  readOnly: props.readOnly,
+                  endAdornment: <InputAdornment position="end">{props.endAdornment}</InputAdornment>,
+                }
+          }
           sx={{ input: { cursor: props.readOnly ? "pointer" : "auto" }, cursor: props.readOnly ? "pointer" : "auto" }}
           color="warning"
         />

@@ -40,8 +40,8 @@ function RecentSearchesItem(props) {
         />
       </div>
       <p className="recent-searches-item__subtitle">
-        {DateFormatterService.toSearchDateRangeString(new Date(props.startDate))} -{" "}
-        {DateFormatterService.toSearchDateRangeString(new Date(props.endDate))}
+        {DateFormatterService.toShortDateFormat(new Date(props.startDate))} -{" "}
+        {DateFormatterService.toShortDateFormat(new Date(props.endDate))}
       </p>
     </AppCard>
   );

@@ -12,7 +12,7 @@ import { ALERT_SEVERITIES } from "constants/enums";
 
 function BookingsList(props) {
   const [qrModalOpen, setQrModalOpen] = useState(false);
-  const [currentQrToken, setCurrentQrToken] = useState();
+  const [currentQrToken, setCurrentQrToken] = useState("");
   const [qrTokens, setQrTokens] = useState({});
   const [loading, setLoading] = useState(false);
 

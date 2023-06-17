@@ -13,15 +13,15 @@ export class UsersApiService {
     });
   }
 
-  static login = ({ email, password }) => {
+  static login({ email, password }) {
     let response = this.usersApiPublicFetcher.post("auth/login", {
       email: email,
       password: password,
     });
     return response;
-  };
+  }
 
-  static refreshTokens = (refreshToken) => {
+  static refreshTokens(refreshToken) {
     let response = this.usersApiPublicFetcher.post(
       REFRESH_URL_PATH,
       {
@@ -30,7 +30,7 @@ export class UsersApiService {
       { withCredentials: true }
     );
     return response;
-  };
+  }
 
   static sendVerificationCodeEmail() {
     let response = this.usersApiPrivateFetcher.post("users/verify-email", {});
@@ -44,43 +44,43 @@ export class UsersApiService {
     return response;
   }
 
-  static resetPasswordSendEmail = (email) => {
+  static resetPasswordSendEmail(email) {
     let response = this.usersApiPrivateFetcher.post("users/reset-password", {
       email: email,
     });
     return response;
-  };
+  }
 
-  static resetPasswordConfirm = ({ token, newPassword }) => {
+  static resetPasswordConfirm({ token, newPassword }) {
     let response = this.usersApiPrivateFetcher.post("users/reset-password/confirm", {
       token: token,
       new_password: newPassword,
     });
     return response;
-  };
+  }
 
   static getMe() {
     let response = this.usersApiPrivateFetcher.get(USERS_ME_URL_PATH);
     return response;
   }
 
-  static updateUserInfo = ({ email, fullName }) => {
+  static updateUserInfo({ email, fullName }) {
     let response = this.usersApiPrivateFetcher.put(USERS_ME_URL_PATH, {
       email: email,
       full_name: fullName,
     });
     return response;
-  };
+  }
 
-  static updatePassword = (newPassword) => {
+  static updatePassword(newPassword) {
     let response = this.usersApiPrivateFetcher.put(USERS_ME_URL_PATH, {
       password: newPassword,
     });
     return response;
-  };
+  }
 
-  static deleteMe = () => {
+  static deleteMe() {
     let response = this.usersApiPrivateFetcher.delete(USERS_ME_URL_PATH);
     return response;
-  };
+  }
 }

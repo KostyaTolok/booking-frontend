@@ -1,5 +1,7 @@
-import { RECENT_SEARCHES_KEY, RECENT_VIEWS_KEY } from "constants/localStorage";
-import { MAX_SEARCHS_LIST_LENGTH, MAX_VIEWS_LIST_LENGTH } from "constants/values";
+import { NOTIFICATIONS_KEY, RECENT_SEARCHES_KEY, RECENT_VIEWS_KEY } from "constants/localStorage";
+import { MAX_SEARCHS_LIST_LENGTH, MAX_VIEWS_LIST_LENGTH, NOTIFICATIONS_HISTORY_MAX_LENGTH } from "constants/values";
+import { setHasNotifications } from "redux/actions/notificationsActions";
+import store from "redux/store";
 
 export class LocalStorageService {
   static setItem(key, item) {
@@ -10,12 +12,12 @@ export class LocalStorageService {
     return JSON.parse(localStorage.getItem(key));
   }
 
-  static getRecentSearches() {
-    return this.getItem(RECENT_SEARCHES_KEY) || [];
+  static getArray(key) {
+    return this.getItem(key) || [];
   }
 
   static addRecentSearch(item) {
-    let searches = this.getRecentSearches();
+    let searches = this.getArray(RECENT_SEARCHES_KEY);
 
     if (searches.length !== 0) {
       let searchList = searches.slice(0, MAX_SEARCHS_LIST_LENGTH - 1);
@@ -28,7 +30,7 @@ export class LocalStorageService {
   }
 
   static removeRecentSearch(index) {
-    let searches = this.getRecentSearches();
+    let searches = this.getArray(RECENT_SEARCHES_KEY);
 
     if (searches.length > 0 && index < searches.length) {
       let tempSearches = [...searches];
@@ -37,12 +39,8 @@ export class LocalStorageService {
     }
   }
 
-  static getRecentViews() {
-    return this.getItem(RECENT_VIEWS_KEY) || [];
-  }
-
   static addRecentView(item) {
-    let views = this.getRecentViews();
+    let views = this.getArray(RECENT_VIEWS_KEY);
 
     if (views.length !== 0) {
       let viewsList = views.slice(0, MAX_VIEWS_LIST_LENGTH - 1);
@@ -55,12 +53,79 @@ export class LocalStorageService {
   }
 
   static removeRecentView(index) {
-    let views = this.getRecentViews();
+    let views = this.getArray(RECENT_VIEWS_KEY);
 
     if (views.length > 0 && index < views.length) {
       let tempViews = [...views];
       tempViews.splice(index, 1);
       this.setItem(RECENT_VIEWS_KEY, tempViews);
+    }
+  }
+
+  static addPaymentNotification({
+    message,
+    apartmentId,
+    apartmentName,
+    startDate,
+    endDate,
+    succeededAt,
+    price,
+    isNew,
+  }) {
+    let notifications = this.getArray(NOTIFICATIONS_KEY);
+
+    let paymentNotification = {
+      message: message,
+      apartmentId: apartmentId,
+      apartmentName: apartmentName,
+      startDate: startDate,
+      endDate: endDate,
+      succeededAt: succeededAt,
+      price: price,
+      isNew: isNew,
+    };
+
+    if (notifications.length !== 0) {
+      let notificationsList = notifications.slice(0, NOTIFICATIONS_HISTORY_MAX_LENGTH - 1);
+      notificationsList.splice(0, 0, paymentNotification);
+      this.setItem(NOTIFICATIONS_KEY, notificationsList);
+    } else {
+      notifications.push(paymentNotification);
+      this.setItem(NOTIFICATIONS_KEY, notifications);
+    }
+  }
+
+  static removeNotification(index) {
+    let notifications = this.getArray(NOTIFICATIONS_KEY);
+
+    if (notifications.length > 0 && index < notifications.length) {
+      let tempNotifications = [...notifications];
+      tempNotifications.splice(index, 1);
+      this.setItem(NOTIFICATIONS_KEY, tempNotifications);
+    }
+  }
+
+  static markAsReadAllNotifications() {
+    store.dispatch(setHasNotifications(false));
+    let notifications = this.getArray(NOTIFICATIONS_KEY);
+    let tempNotifications = [];
+
+    notifications.forEach((notification) => {
+      notification.isNew = false;
+      tempNotifications.push(notification);
+    });
+
+    this.storeData(NOTIFICATIONS_KEY, tempNotifications);
+  }
+
+  static checkForNewNotifications() {
+    let notifications = this.getData(NOTIFICATIONS_KEY);
+
+    for (let i = 0; i < notifications.length; i++) {
+      if (notifications[i].isNew) {
+        store.dispatch(setHasNotifications(true));
+        break;
+      }
     }
   }
 }
