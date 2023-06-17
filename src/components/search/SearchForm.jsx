@@ -6,6 +6,7 @@ import { HOTELS_LIST_LINK } from "constants/links";
 import { setDatesTooltipOpen, setDestinationTooltipOpen } from "redux/actions/tooltipsActions";
 import { useDispatch, useSelector } from "react-redux";
 import { LocalStorageService } from "services/LocalStorageService";
+import { Grid } from "@mui/material";
 
 function SearchForm() {
   const hotelsList = useSelector((store) => store.hotelsList);
@@ -37,10 +38,16 @@ function SearchForm() {
       <h1 className="search-form__heading">Find your next stay</h1>
       <p className="search-form__subtitle">Search deals on hotels, homes, and much more...</p>
       <div className="search-form__wrapper">
-        <SearchInputs />
-        <Link to={HOTELS_LIST_LINK} onClick={handleSearchClick}>
-          <Button className="button_medium button_white search-form__button">Search</Button>
-        </Link>
+        <Grid container columnSpacing={"4.0625rem"} rowSpacing={"1rem"}>
+          <Grid item xs={12} md={9}>
+            <SearchInputs />
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <Link to={HOTELS_LIST_LINK} onClick={handleSearchClick}>
+              <Button className="button_medium button_white search-form__button">Search</Button>
+            </Link>
+          </Grid>
+        </Grid>
       </div>
     </form>
   );

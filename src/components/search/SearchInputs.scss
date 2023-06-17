@@ -4,8 +4,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 70%;
   height: 2.5rem;
   padding: 0.3125rem 3.3125rem;
   background-color: $white-color;
+
+  &__divider {
+    margin-right: 3.3125rem !important;
+  }
+
+  @media screen and (max-width: $small-screen) {
+    padding: 0.3125rem 0 0.3125rem 1rem;
+
+    &__divider {
+      margin-right: 1rem !important;
+    }
+  }
 }
