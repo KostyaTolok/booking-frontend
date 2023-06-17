@@ -35,6 +35,7 @@ import RoomDetailsPage from "pages/RoomDetailsPage";
 import CheckoutPage from "pages/CheckoutPage";
 import AppLoader from "components/common/AppLoader";
 import NotificationsPage from "pages/NotificationsPage";
+import { Container } from "@mui/material";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -57,7 +58,7 @@ function App() {
               <Route exact path={HOME_LINK} element={<Header showSearch />} />
               <Route path="*" element={<Header />} />
             </Routes>
-            <main>
+            <Container className="main-container" maxWidth="xl">
               <Routes>
                 <Route path={HOME_LINK} element={<Home />} />
                 <Route path={HOTELS_LIST_LINK} element={<HotelsListPage />} />
@@ -108,7 +109,7 @@ function App() {
                   }
                 />
               </Routes>
-            </main>
+            </Container>
           </Router>
           <AppAlert />
           <Footer />

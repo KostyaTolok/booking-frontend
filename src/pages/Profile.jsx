@@ -167,7 +167,7 @@ function Profile() {
           label="Full Name"
           helperText={errors.fullName?.message}
         />
-        <Stack spacing={4} marginTop={2} direction="row">
+        <Stack spacing={{ xl: 4, xs: 1 }} marginTop={2} direction={{ xl: "row", md: "column" }}>
           {!isActive && (
             <Button
               className="button_large button_black-outlined profile__button"

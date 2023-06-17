@@ -8,9 +8,9 @@ function SearchInputs() {
   return (
     <div className="search-inputs">
       <DestinationSelect />
-      <Divider orientation="vertical" variant="middle" flexItem sx={{ marginRight: 6.625 }} />
+      <Divider orientation="vertical" variant="middle" flexItem className="search-inputs__divider" />
       <CalendarRangePicker />
-      <Divider orientation="vertical" variant="middle" flexItem sx={{ marginRight: 6.625 }} />
+      <Divider orientation="vertical" variant="middle" flexItem className="search-inputs__divider" />
       <GuestsModal />
     </div>
   );

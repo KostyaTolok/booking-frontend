@@ -22,7 +22,9 @@
     margin-top: 3.75rem;
   }
 
-  &__button {
-    margin-left: 4.0625rem;
+  @media screen and (max-width: $medium-screen) {
+    &__button {
+      width: 100% !important;
+    }
   }
 }

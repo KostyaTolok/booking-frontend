@@ -1,3 +1,5 @@
+@import "constants";
+
 .list-item {
   position: relative;
   display: flex;
@@ -61,5 +63,21 @@
     bottom: 1.5rem;
     padding: 0.5625rem 5.0625rem;
     font-size: 14px;
+  }
+
+  @media screen and (max-width: $small-screen) {
+    &__name_large {
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    &__subtitle {
+      margin-top: 1rem;
+      font-size: 16px;
+    }
+
+    &__button {
+      padding: 0.5625rem 0.5rem;
+    }
   }
 }
