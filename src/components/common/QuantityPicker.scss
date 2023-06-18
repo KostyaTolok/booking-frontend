@@ -33,4 +33,14 @@
     border: 0;
     pointer-events: none;
   }
+
+  @media screen and (max-width: $large-screen) {
+    &__modifier {
+      width: 2rem;
+    }
+
+    &__display {
+      width: 2rem;
+    }
+  }
 }

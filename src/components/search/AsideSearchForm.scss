@@ -1,12 +1,15 @@
 @import "constants";
 
 .aside-search-form-wrapper {
-  margin-bottom: 1.875rem;
   padding: 1.25rem 1.6875rem;
   font-size: 14px;
   background-color: $orange-color;
 
   .aside-search-form {
+    &__input-group {
+      width: 100%;
+    }
+
     &__label {
       color: $white-color;
       font-family: $secondary-font;

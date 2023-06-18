@@ -1,4 +1,4 @@
-import { Divider, Grid } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Divider, Grid, Stack, Typography } from "@mui/material";
 import Button from "components/common/Button";
 import Description from "components/common/Description";
 import HotelFacilities from "components/hotelDetails/HotelFacilities";
@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import AlertsService from "services/AlertsService";
 import { LocalStorageService } from "services/LocalStorageService";
 import { SearchApiService } from "services/SearchApiService";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 function HotelDetailsPage() {
   const [needRefreshRooms, setNeedRefreshRooms] = useState(true);
@@ -106,20 +107,35 @@ function HotelDetailsPage() {
 
   return (
     <Grid container spacing={3.75}>
-      <Grid item xs={3}>
-        <AsideSearchForm />
-        <HotelLocation hotelLoaded={hotelLoaded} latitude={hotel.latitude} longitude={hotel.longitude} />
+      <Grid item xs={12} md={3}>
+        <Stack spacing={3.75}>
+          <AsideSearchForm />
+          <HotelLocation hotelLoaded={hotelLoaded} latitude={hotel.latitude} longitude={hotel.longitude} />
+          <Accordion sx={{ display: { xs: "block", md: "none" } }}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography>Show hotel location on map</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <HotelLocation
+                className="hotel-location_accordion"
+                hotelLoaded={hotelLoaded}
+                latitude={hotel.latitude}
+                longitude={hotel.longitude}
+              />
+            </AccordionDetails>
+          </Accordion>
+        </Stack>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={9}>
         <HotelInfo name={hotel.name} address={hotel.address} rating={hotel.rating} images={hotelImages} />
       </Grid>
       <Grid item xs={12}>
         <Divider />
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={9}>
         <Description text={hotel.description} />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={12} md={3}>
         <HotelFacilities hasWifi={hotel.hasWifi} hasParking={hotel.hasParking} />
         <Divider sx={{ marginY: 3.75 }} />
         <Button
@@ -133,10 +149,10 @@ function HotelDetailsPage() {
       <Grid item xs={12}>
         <Divider />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={12} md={3}>
         <RoomSearchFilters refreshRooms={refreshRooms} />
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={9}>
         <SortRoomsDropdown refreshRooms={refreshRooms} />
         <RoomsList ref={roomsListRef} rooms={rooms} />
       </Grid>

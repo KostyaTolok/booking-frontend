@@ -4,7 +4,7 @@ import "./HotelLocation.scss";
 
 function HotelLocation(props) {
   return (
-    <div className="hotel-location">
+    <div className={`hotel-location ${props.className}`}>
       {props.hotelLoaded && (
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}

@@ -128,19 +128,19 @@ function RoomDetailsPage() {
           </Button>
         </DialogActions>
       </Dialog>
-      <Grid item xs={3}>
+      <Grid item xs={12} md={3}>
         <AsideSearchForm />
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={9}>
         <RoomInfo ref={infoRef} name={room.name} price={room.price} images={roomImages} />
       </Grid>
       <Grid item xs={12}>
         <Divider />
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={9}>
         <Description text={room.description} />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={12} md={3}>
         <RoomFacilities
           hasWashingMachine={room.hasWashingMachine}
           hasKitchen={room.hasKitchen}

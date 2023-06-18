@@ -1,3 +1,5 @@
+@import "constants";
+
 .room-info {
   &__header {
     display: flex;
@@ -16,5 +18,11 @@
     height: 35.125rem;
     object-fit: cover;
     object-position: center center;
+  }
+
+  @media screen and (max-width: $small-screen) {
+    &__image {
+      height: 20rem;
+    }
   }
 }
