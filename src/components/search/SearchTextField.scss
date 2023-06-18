@@ -4,3 +4,12 @@
   width: 100%;
   background-color: $white-color;
 }
+
+.MuiInputBase-input {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media screen and (max-width: $small-screen) {
+    font-size: 14px !important;
+  }
+}

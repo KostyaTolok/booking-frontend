@@ -65,7 +65,25 @@
     font-size: 14px;
   }
 
+  @media screen and (max-width: $medium-screen) {
+    &__description {
+      margin-top: 0.5rem;
+      -webkit-line-clamp: 3;
+    }
+
+    &__price {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
   @media screen and (max-width: $small-screen) {
+    height: 10rem;
+
+    &__info {
+      padding: 0.5rem;
+    }
+
     &__name_large {
       font-weight: 500;
       font-size: 20px;
@@ -78,6 +96,20 @@
 
     &__button {
       padding: 0.5625rem 0.5rem;
+    }
+
+    &__description {
+      -webkit-line-clamp: 2;
+    }
+
+    &__price {
+      right: 1rem;
+      bottom: 1rem;
+    }
+
+    &__image {
+      width: 10rem;
+      object-fit: cover;
     }
   }
 }

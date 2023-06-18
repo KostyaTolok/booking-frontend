@@ -46,4 +46,22 @@
     right: 1.0625rem;
     bottom: 0.625rem;
   }
+
+  @media screen and (max-width: $small-screen) {
+    width: 15rem;
+    height: 6rem;
+    margin: 1rem 1rem 1rem 0;
+
+    &__image {
+      width: 6rem;
+    }
+
+    &__info {
+      padding: 0.5rem;
+    }
+
+    &__subtitle {
+      display: none;
+    }
+  }
 }

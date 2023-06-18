@@ -1,5 +1,15 @@
+@import "constants";
+
 .hotel-location {
   width: 100%;
   height: 20.75rem;
   border-radius: 4px;
+
+  @media screen and (max-width: $medium-screen) {
+    display: none;
+
+    &_accordion {
+      display: block;
+    }
+  }
 }

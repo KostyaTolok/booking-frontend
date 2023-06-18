@@ -44,7 +44,7 @@ function AsideSearchForm(props) {
   return (
     <div className="aside-search-form-wrapper">
       <form className="aside-search-form">
-        <Stack spacing={1}>
+        <Stack direction={{ xs: "row", md: "column" }} spacing={1}>
           <div className="aside-search-form__input-group">
             <label className="aside-search-form__label">Destination</label>
             <DestinationSelect aside />

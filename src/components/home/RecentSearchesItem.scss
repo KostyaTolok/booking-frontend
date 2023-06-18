@@ -24,4 +24,11 @@
     font-size: 14px;
     font-family: $secondary-font;
   }
+
+  @media screen and (max-width: $small-screen) {
+    width: 10rem;
+    height: 4rem;
+    margin: 1rem 1rem 1rem 0;
+    padding: 1rem;
+  }
 }

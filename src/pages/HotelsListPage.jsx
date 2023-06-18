@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import AlertsService from "services/AlertsService";
 import { SearchApiService } from "services/SearchApiService";
-import { Grid } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import AsideSearchForm from "components/search/AsideSearchForm";
 import HotelsList from "components/hotelsList/HotelsList";
 import HotelSearchFilters from "components/hotelsList/HotelSearchFilters";
@@ -47,11 +47,13 @@ function HotelsListPage() {
 
   return (
     <Grid container spacing={3.75}>
-      <Grid item xs={3}>
-        <AsideSearchForm refreshHotels={refreshHotels} />
-        <HotelSearchFilters refreshHotels={refreshHotels} />
+      <Grid item xs={12} md={3}>
+        <Stack spacing={3.75}>
+          <AsideSearchForm refreshHotels={refreshHotels} />
+          <HotelSearchFilters refreshHotels={refreshHotels} />
+        </Stack>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={9}>
         <SortHotelsDropdown refreshHotels={refreshHotels} />
         <HotelsList hotels={hotels} />
       </Grid>
